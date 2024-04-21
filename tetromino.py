@@ -6,6 +6,8 @@ import numpy as np  # the fundamental Python module for scientific computing
 
 # Class used for modeling tetrominoes with 3 out of 7 different types/shapes 
 # as (I, O and Z)
+
+#add 4 of them
 class Tetromino:
    # The dimensions of the game grid
    grid_height, grid_width = None, None
@@ -37,6 +39,39 @@ class Tetromino:
          occupied_tiles.append((1, 1))
          occupied_tiles.append((1, 2))
          occupied_tiles.append((2, 2))
+
+
+      elif type == 'J':
+         n = 3  # n = number of rows = number of columns in the tile matrix
+         # shape of the tetromino Z in its initial orientation
+         occupied_tiles.append((0, 2))  # (column_index, row_index)
+         occupied_tiles.append((1, 1))
+         occupied_tiles.append((1, 2))
+         occupied_tiles.append((1, 3))
+
+      elif type == 'L':
+         n = 3  # n = number of rows = number of columns in the tile matrix
+         # shape of the tetromino Z in its initial orientation
+         occupied_tiles.append((0, 0))  # (column_index, row_index)
+         occupied_tiles.append((0, 1))
+         occupied_tiles.append((0, 2))
+         occupied_tiles.append((1, 2))
+
+      elif type == 'S':
+         n = 3  # n = number of rows = number of columns in the tile matrix
+         # shape of the tetromino Z in its initial orientation
+         occupied_tiles.append((0, 2))  # (column_index, row_index)
+         occupied_tiles.append((1, 1))
+         occupied_tiles.append((1, 2))
+         occupied_tiles.append((2, 1))
+      elif type == 'T':
+         n = 3  # n = number of rows = number of columns in the tile matrix
+         # shape of the tetromino Z in its initial orientation
+         occupied_tiles.append((0, 1))  # (column_index, row_index)
+         occupied_tiles.append((1, 1))
+         occupied_tiles.append((1, 2))
+         occupied_tiles.append((2, 1))
+
       # create a matrix of numbered tiles based on the shape of the tetromino
       self.tile_matrix = np.full((n, n), None)
       # create the four tiles (minos) of the tetromino and place these tiles
@@ -53,6 +88,20 @@ class Tetromino:
 
    # Method that returns the position of the cell in the tile matrix specified 
    # by the given row and column indexes
+
+
+
+   # HERE IS ABOUT TETROMINO ROTATE
+   def rotate(self):
+      n = len(self.tile_matrix)
+      new_matrix = np.zeros((n, n), dtype=object)  #cretae new matrix
+      # on the clock rotate
+      for i in range(n):
+         for j in range(n):
+            new_matrix[j][n - 1 - i] = self.tile_matrix[i][j]
+      self.tile_matrix = new_matrix
+
+
    def get_cell_position(self, row, col):
       n = len(self.tile_matrix)  # n = number of rows = number of columns
       position = Point()

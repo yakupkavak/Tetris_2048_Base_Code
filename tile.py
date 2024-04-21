@@ -15,9 +15,9 @@ class Tile:
       # set the number on the tile
       self.number = 2
       # set the colors of the tile
-      self.background_color = Color(151, 178, 199) # background (tile) color
-      self.foreground_color = Color(0, 100, 200) # foreground (number) color
-      self.box_color = Color(0, 100, 200) # box (boundary) color
+      self.background_color = Color(240, 211, 205) # background (tile) color
+      self.foreground_color = Color(175, 119, 107) # foreground (number) color
+      self.box_color = Color(175, 119, 107) # box (boundary) color
 
    # Method for drawing the tile
    def draw(self, position, length = 1):
