@@ -10,6 +10,12 @@ class GameGrid:
       # set the dimensions of the game grid as the given arguments
       self.grid_height = grid_h
       self.grid_width = grid_w
+
+      #EKSTRA SPACE FOR SCORE AND NEXT TETROMINO
+      #self.panel_width = 6
+      #self.total_width = grid_w + self.panel_width
+
+
       # create a tile matrix to store the tiles landed onto the game grid
       self.tile_matrix = np.full((grid_h, grid_w), None)
       # create the tetromino that is currently being moved on the game grid
@@ -25,6 +31,7 @@ class GameGrid:
       self.line_thickness = 0.002
       self.box_thickness = 10 * self.line_thickness
 
+
    # Method used for displaying the game grid
    def display(self):
       # clear the background to empty_cell_color
@@ -35,8 +42,11 @@ class GameGrid:
       # game grid is updated)
       if self.current_tetromino is not None:
          self.current_tetromino.draw()
-      # draw a box around the game grid 
+      # draw a box around the game grid
       self.draw_boundaries()
+
+
+
       # show the resulting drawing with a pause duration = 250 ms
       stddraw.show(250)
          
@@ -84,6 +94,9 @@ class GameGrid:
       
    # Method used for checking whether the cell with given row and column indexes 
    # is inside the game grid or not
+
+
+
    def is_inside(self, row, col):
       if row < 0 or row >= self.grid_height:
          return False

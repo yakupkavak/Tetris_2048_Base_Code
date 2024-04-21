@@ -102,6 +102,17 @@ class Tetromino:
       self.tile_matrix = new_matrix
 
 
+
+   def draw_preview(self, center_x, center_y):
+      # Önizlemeyi çiz
+      for i in range(self.tile_matrix.shape[0]):
+         for j in range(self.tile_matrix.shape[1]):
+            if self.tile_matrix[i][j] is not None:
+               # Önizlemeyi uygun pozisyonda çizmek için kod
+               pass
+
+
+
    def get_cell_position(self, row, col):
       n = len(self.tile_matrix)  # n = number of rows = number of columns
       position = Point()

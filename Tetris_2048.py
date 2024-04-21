@@ -58,6 +58,14 @@ def start():
             print("keybord k pressed");
             current_tetromino.rotate()
 
+         elif key_typed == "p":
+            print("keybord p pressed");
+            pause(grid)
+
+         elif key_typed == "h":
+            print("keybord h pressed");
+            #restart()
+
 
 
          # clear the queue of the pressed keys for a smoother interaction
@@ -86,6 +94,24 @@ def start():
 
    # print a message on the console when the game is over
    print("Game over")
+
+
+def pause(grid):
+   pause = True
+   #the loop causes pause the game.
+   while pause:
+      # display the game grid and the current tetromino
+      grid.display()
+
+      # Check for user input
+      if stddraw.hasNextKeyTyped():
+         key_typed = stddraw.nextKeyTyped()
+         # Check if the user presses the 'p' key to resume the game
+         if key_typed == "p":
+            pause = False
+
+
+
 
 # Function for creating random shaped tetrominoes to enter the game grid
 def create_tetromino(grid_height, grid_width):
